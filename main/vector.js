@@ -1,7 +1,4 @@
 class Vector{
-    constructor() {
-    }
-
     addition(vector_1, vector_2) {
         let result = [];
         for(let i = 0; i < vector_1.length; i++)

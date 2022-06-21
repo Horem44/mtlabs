@@ -76,5 +76,4 @@ describe('Vector class', function() {
         });
     });
 });
-//
-// /usr/local/bin/node /usr/local/lib/node_modules/mocha/bin/mocha.js --ui bdd --reporter /Applications/WebStorm.app/Contents/plugins/NodeJS/js/mocha-intellij/lib/mochaIntellijReporter.js /Users/ilyayegorov/Documents/SUCH/OOP/test
+
