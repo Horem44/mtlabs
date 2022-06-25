@@ -17,10 +17,39 @@ describe('Vector class', function() {
             expect(result).deep.to.equal(expected);
         });
 
-        it('Should return [] when first vector is empty', () => {
+        it('Should throw an error if one of parameter of func is not array', () => {
             const vector = new Vector();
-            const result = vector.addition([], [1,2,3,4]);
-            expect(result.length).equal(0);
+            expect(function(){
+                vector.addition(1, [1]);
+            }).to.throw('params of func are not arrays');
+        });
+
+        it('Should throw an error if both parameters of func are not arrays', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.addition(1, 1);
+            }).to.throw('params of func are not arrays');
+        });
+
+        it('Should throw an error if one of parameters of func is not arr of integers', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.addition([1], ['a']);
+            }).to.throw('elems of vectors are not Int');
+        });
+
+        it('Should throw an error if both parameters of func are not arrays of integers', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.addition(['b'], ['a']);
+            }).to.throw('elems of vectors are not Int');
+        });
+
+        it('Should throw an error if arrays lengths are not equal', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.addition([1,2,3,4], [1,2,3]);
+            }).to.throw('lengths are not equal');
         });
     });
 
@@ -46,10 +75,39 @@ describe('Vector class', function() {
             expect(result).deep.to.equal(expected);
         });
 
-        it('Should return [] when first vector is empty', () => {
+        it('Should throw an error if one of parameter of func is not array', () => {
             const vector = new Vector();
-            const result = vector.subtraction([], [1,2,3,4]);
-            expect(result.length).equal(0);
+            expect(function(){
+                vector.subtraction(1, [1]);
+            }).to.throw('params of func are not arrays');
+        });
+
+        it('Should throw an error if both parameters of func are not arrays', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.subtraction(1, 1);
+            }).to.throw('params of func are not arrays');
+        });
+
+        it('Should throw an error if one of parameters of func is not arr of integers', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.subtraction([1], [3.4, 'a']);
+            }).to.throw('elems of vectors are not Int');
+        });
+
+        it('Should throw an error if both parameters of func are not arrays of integers', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.subtraction([1,2,3,'b'], ['a']);
+            }).to.throw('elems of vectors are not Int');
+        });
+
+        it('Should throw an error if arrays lengths are not equal', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.subtraction([1,2,3,4,5,6,7], [1,2,3]);
+            }).to.throw('lengths are not equal');
         });
     });
 
@@ -73,6 +131,41 @@ describe('Vector class', function() {
             const expected = -8;
             const result = vector.dotProduct([-3,5,7,9], [1,2,3,-4]);
             expect(result).to.equal(expected);
+        });
+
+        it('Should throw an error if one of parameter of func is not array', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.dotProduct(1, [1]);
+            }).to.throw('params of func are not arrays');
+        });
+
+        it('Should throw an error if both parameters of func are not arrays', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.dotProduct(1, 1);
+            }).to.throw('params of func are not arrays');
+        });
+
+        it('Should throw an error if one of parameters of func is not arr of integers', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.dotProduct([5,5,6], ["a", "b", "c"]);
+            }).to.throw('elems of vectors are not Int');
+        });
+
+        it('Should throw an error if both parameters of func are not arrays of integers', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.dotProduct([1,2,'b'], ['cw','a',6]);
+            }).to.throw('elems of vectors are not Int');
+        });
+
+        it('Should throw an error if arrays lengths are not equal', () => {
+            const vector = new Vector();
+            expect(function(){
+                vector.dotProduct([1,2,3], [1,2]);
+            }).to.throw('lengths are not equal');
         });
     });
 });
